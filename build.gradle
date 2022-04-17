@@ -6,6 +6,7 @@ group 'com.eleven'
 version '2.0-SNAPSHOT'
 
 repositories {
+    jcenter()   // 추후 삭제 가능성 있음
     mavenCentral()
 
     maven {
@@ -23,14 +24,14 @@ repositories {
 }
 
 dependencies {
-    implementation 'net.dv8tion:JDA:5.0.0-alpha.9'
+    implementation 'net.dv8tion:JDA:4.4.0_352'
     implementation 'org.slf4j:slf4j-log4j12:2.0.0-alpha7'
     implementation 'me.duncte123:botCommons:2.3.14'
     implementation 'com.zaxxer:HikariCP:5.0.1'
     implementation 'com.sedmelluq:lavaplayer:1.3.77'
-    implementation 'com.jagrosh:jda-utilities:3.0.5'
     implementation 'org.jsoup:jsoup:1.14.3'
     implementation 'org.yaml:snakeyaml:1.30'
+    compileOnly 'com.jagrosh:jda-utilities:3.0.5'
     runtimeOnly 'mysql:mysql-connector-java:8.0.28'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
