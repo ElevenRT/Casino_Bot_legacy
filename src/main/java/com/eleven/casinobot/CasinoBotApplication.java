@@ -1,6 +1,6 @@
-package com.eleven.casino_bot;
+package com.eleven.casinobot;
 
-import com.eleven.casino_bot.config.BotConfig;
+import com.eleven.casinobot.config.BotConfig;
 
 public class CasinoBotApplication {
 

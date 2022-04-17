@@ -1,6 +1,6 @@
-package com.eleven.casino_bot.config;
+package com.eleven.casinobot.config;
 
-import com.eleven.casino_bot.CasinoBotApplication;
+import com.eleven.casinobot.CasinoBotApplication;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
