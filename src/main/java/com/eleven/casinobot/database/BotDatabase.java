@@ -22,7 +22,7 @@ public class BotDatabase {
             statement.execute(
                     "CREATE TABLE IF NOT EXISTS MEMBER (" +
                             "id BIGINT PRIMARY KEY, " +
-                            "money BIGINT NOT NULL DEFAULT 0, " +
+                            "money BIGINT NOT NULL DEFAULT 3000, " +
                             "fortune VARCHAR(20) NOT NULL DEFAULT 'NONE'" +
                             ");"
             );
