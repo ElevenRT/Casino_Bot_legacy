@@ -3,7 +3,7 @@ package com.eleven.casinobot.database;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class DataBaseQaury {
+public class DataBaseQuery {
     public void update(long guildId, String string, String Table, String colum, String where) {
 
         try (final PreparedStatement preparedStatement = BotDatabase.getConnection()

@@ -3,8 +3,7 @@ package com.eleven.casinobot.command.commands;
 import com.eleven.casinobot.command.CommandContext;
 import com.eleven.casinobot.command.ICommand;
 import com.eleven.casinobot.config.PrefixConfig;
-import com.eleven.casinobot.database.BotDatabase;
-import com.eleven.casinobot.database.DataBaseQaury;
+import com.eleven.casinobot.database.DataBaseQuery;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -13,7 +12,7 @@ import java.util.List;
 
 public class SetPrefix implements ICommand {
 
-    DataBaseQaury qaury = new DataBaseQaury();
+    DataBaseQuery query = new DataBaseQuery();
     @Override
     public void handle(CommandContext ctx) {
         final TextChannel channel = ctx.getChannel();
@@ -31,7 +30,7 @@ public class SetPrefix implements ICommand {
         }
 
         final String prefix = String.join("",chat);
-        qaury.update(channel.getGuild().getIdLong(),prefix,"GUILD","prefix","guild_id");
+        query.update(channel.getGuild().getIdLong(),prefix,"GUILD","prefix","guild_id");
 
     }
 
