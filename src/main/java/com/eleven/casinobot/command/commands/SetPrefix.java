@@ -30,7 +30,7 @@ public class SetPrefix implements ICommand {
         }
 
         final String prefix = String.join("",chat);
-        query.update(channel.getGuild().getIdLong(),prefix,"GUILD","prefix","guild_id");
+        query.update(channel.getGuild().getIdLong(),prefix, "GUILD", "prefix", "guild_id");
 
     }
 
