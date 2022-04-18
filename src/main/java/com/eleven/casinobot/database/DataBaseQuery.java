@@ -11,8 +11,8 @@ public class DataBaseQuery {
                         " SET " + colum + " = ? " +
                         "where " + where + " = ?")) {
 
-            preparedStatement.setString(1,string);
-            preparedStatement.setString(2,String.valueOf(guildId));
+            preparedStatement.setString(1, string);
+            preparedStatement.setString(2, String.valueOf(guildId));
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

@@ -10,7 +10,7 @@ import net.dv8tion.jda.api.entities.TextChannel;
 
 import java.util.List;
 
-public class SetPrefix implements ICommand {
+public class SetPrefixCommand implements ICommand {
 
     DataBaseQuery query = new DataBaseQuery();
     @Override
