@@ -1,4 +1,4 @@
-package com.eleven.casinobot.command.commands;
+package com.eleven.casinobot.command.commands.common;
 
 import com.eleven.casinobot.command.CommandContext;
 import com.eleven.casinobot.command.ICommand;

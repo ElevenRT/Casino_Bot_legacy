@@ -1,5 +1,8 @@
 package com.eleven.casinobot.command;
 
+import com.eleven.casinobot.command.commands.common.HelpCommand;
+import com.eleven.casinobot.command.commands.common.PingCommand;
+import com.eleven.casinobot.command.commands.common.SetPrefixCommand;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.ArrayList;
@@ -11,7 +14,11 @@ public class CommandManager {
 
     private final List<ICommand> commandList = new ArrayList<>();
 
-
+    public CommandManager() {
+        addCommand(new HelpCommand(this));
+        addCommand(new SetPrefixCommand());
+        addCommand(new PingCommand());
+    }
 
     private void addCommand(ICommand command) {
         boolean isNameFound = this.commandList
