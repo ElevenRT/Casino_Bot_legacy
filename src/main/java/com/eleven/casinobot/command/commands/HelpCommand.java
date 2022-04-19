@@ -10,11 +10,12 @@ import java.util.List;
 
 public class HelpCommand implements ICommand {
 
+    private final CommandManager manager;
+
     public HelpCommand(CommandManager manager) {
         this.manager = manager;
     }
 
-    CommandManager manager;
     @Override
     public void handle(CommandContext ctx) {
         List<String> strings = ctx.getStrings();
@@ -30,6 +31,7 @@ public class HelpCommand implements ICommand {
                     it -> stringBuilder.append("`").append(prefix).append(it).append("`\n")
             );
             channel.sendMessage(stringBuilder.toString()).queue();
+            return;
         }
 
         String search = strings.get(0);
