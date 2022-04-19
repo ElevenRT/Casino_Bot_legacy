@@ -6,7 +6,6 @@ import com.eleven.casinobot.command.ICommand;
 import com.eleven.casinobot.config.PrefixConfig;
 import net.dv8tion.jda.api.entities.TextChannel;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class HelpCommand implements ICommand {
