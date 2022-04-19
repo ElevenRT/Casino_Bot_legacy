@@ -33,7 +33,7 @@ public class JoinCommand implements ICommand {
 
         audioManager.openAudioConnection(memberVoiceChannel);
         if (memberVoiceChannel != null) {
-            textChannel.sendMessageFormat("`\\uD83D\\uDD0A`, %s에 연결하였습니다.",
+            textChannel.sendMessageFormat("`\uD83D\uDD0A`, %s에 연결하였습니다.",
                     memberVoiceChannel.getName())
                     .queue();
         }

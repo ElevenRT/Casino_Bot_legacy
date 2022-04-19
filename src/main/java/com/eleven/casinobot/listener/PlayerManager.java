@@ -61,13 +61,14 @@ public class PlayerManager {
                 for (final AudioTrack track : trackList) {
                     musicManager.trackScheduler.addTrack(track, textChannel.getGuild().getIdLong());
 
-                    textChannel.sendMessage("`업로더: `")
+                    textChannel.sendMessage("업로더: `")
                             .append(track.getInfo().author)
                             .append("`의 `")
                             .append(track.getInfo().title)
                             .append("`")
                             .append("를 큐에 추가했습니다.")
                             .queue();
+                    break;
                 }
             }
 
