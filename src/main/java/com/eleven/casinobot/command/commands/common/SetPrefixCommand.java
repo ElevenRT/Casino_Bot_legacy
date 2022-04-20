@@ -31,7 +31,7 @@ public class SetPrefixCommand implements ICommand {
 
         final String prefix = String.join("",chat);
         query.update(channel.getGuild().getIdLong(),prefix, "GUILD", "prefix", "guild_id");
-
+        channel.sendMessage("변경됨").queue();
     }
 
     @Override

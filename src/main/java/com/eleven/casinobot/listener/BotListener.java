@@ -59,7 +59,7 @@ public class BotListener extends ListenerAdapter {
 
     private String getPrefix(long guildId) {
         try (final PreparedStatement preparedStatement = BotDatabase.getConnection()
-                .prepareStatement("SELECT PREFIX FROM GUILD WHERE guild_id = ?")) {
+                .prepareStatement("SELECT prefix FROM guild WHERE guild_id = ?")) {
             preparedStatement.setString(1, String.valueOf(guildId));
             try (final ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
