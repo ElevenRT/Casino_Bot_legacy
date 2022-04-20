@@ -2,8 +2,8 @@ package com.eleven.casinobot.command.commands.music;
 
 import com.eleven.casinobot.command.CommandContext;
 import com.eleven.casinobot.command.ICommand;
-import com.eleven.casinobot.listener.GuildMusicManager;
-import com.eleven.casinobot.listener.PlayerManager;
+import com.eleven.casinobot.lavaplayer.GuildMusicManager;
+import com.eleven.casinobot.lavaplayer.PlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;

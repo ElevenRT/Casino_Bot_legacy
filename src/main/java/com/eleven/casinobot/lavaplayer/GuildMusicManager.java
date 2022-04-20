@@ -1,6 +1,5 @@
-package com.eleven.casinobot.listener;
+package com.eleven.casinobot.lavaplayer;
 
-import com.eleven.casinobot.lavaplayer.AudioPlayerSendHandler;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 
