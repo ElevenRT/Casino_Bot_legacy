@@ -2,6 +2,7 @@ package com.eleven.casinobot.command.commands.game;
 
 import com.eleven.casinobot.command.CommandContext;
 import com.eleven.casinobot.command.ICommand;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.TextChannel;
 
 import java.util.*;
@@ -16,8 +17,9 @@ public class FlipCoinCommand implements ICommand {
     @Override
     public void handle(CommandContext ctx) {
         TextChannel channel = ctx.getChannel();
+        Guild guild = ctx.getGuild();
 
-        if(FlipCoin.server.contains(channel.getIdLong())){
+        if(FlipCoin.server.contains(guild.getIdLong())){
             channel.sendMessage("이미 게임을 진행 중입니다.").queue();
             return;
         }
@@ -49,10 +51,10 @@ public class FlipCoinCommand implements ICommand {
                             channel.sendMessageFormat("<@%s>, 안타깝습니다. 틀리셨습니다.", GameUser).queue();
                         }
                     }
-                    FlipCoin.server.remove(channel.getGuild().getIdLong());
+                    FlipCoin.server.remove(guild.getIdLong());
                     FlipCoin.user.clear();
                 });
-        FlipCoin.server.add(channel.getGuild().getIdLong());
+        FlipCoin.server.add(guild.getIdLong());
 
 
     }
