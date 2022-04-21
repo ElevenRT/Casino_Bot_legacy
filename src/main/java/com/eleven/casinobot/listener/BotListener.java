@@ -1,13 +1,16 @@
 package com.eleven.casinobot.listener;
 
 import com.eleven.casinobot.command.CommandManager;
+import com.eleven.casinobot.command.commands.game.FlipCoinCommand;
 import com.eleven.casinobot.config.BotConfig;
 import com.eleven.casinobot.config.PrefixConfig;
 import com.eleven.casinobot.database.BotDatabase;
 import me.duncte123.botcommons.BotCommons;
+import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -78,4 +81,32 @@ public class BotListener extends ListenerAdapter {
         return BotConfig.getPrefix();
     }
 
+    @Override
+    public void onGuildMessageReactionAdd(@NotNull GuildMessageReactionAddEvent event) {
+        User user = event.getUser();
+        TextChannel channel = event.getChannel();
+
+        if (user.isBot()) {
+            return;
+        }
+
+        if (FlipCoinCommand.FlipCoin.server.contains(channel.getGuild().getIdLong())) {
+            if (FlipCoinCommand.FlipCoin.user.containsKey(user.getIdLong())) {
+                String bating = FlipCoinCommand.FlipCoin.user
+                                .get(user.getIdLong()) ? "앞면" : "뒷면";
+                channel.sendMessageFormat("%s님은 이미 %s에 배팅하셨습니다.",user,bating).queue();
+            }
+            else{
+                if (event.getReactionEmote().getName().equals(FlipCoinCommand.head)) {
+                    FlipCoinCommand.FlipCoin.user.put(user.getIdLong(), true);
+                    channel.sendMessageFormat("%s, 앞면에 배팅하셨습니다.", user).queue();
+                }
+                else {
+                    FlipCoinCommand.FlipCoin.user.put(user.getIdLong(), false);
+                    channel.sendMessageFormat("%s, 뒷면에 배팅하셨습니다.", user).queue();
+                }
+            }
+
+        }
+    }
 }
