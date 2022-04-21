@@ -22,7 +22,6 @@ public class FlipCoinCommand implements ICommand {
             return;
         }
 
-        FlipCoin.server.add(channel.getGuild().getIdLong());
         channel.sendMessage("10초가 지나기 전에 배팅 해 주세요.\n")
                 .append("앞면에 배팅하시려면 눌러주세요 : ")
                 .append(head)
@@ -53,6 +52,7 @@ public class FlipCoinCommand implements ICommand {
                     FlipCoin.server.remove(channel.getGuild().getIdLong());
                     FlipCoin.user.clear();
                 });
+        FlipCoin.server.add(channel.getGuild().getIdLong());
 
 
     }

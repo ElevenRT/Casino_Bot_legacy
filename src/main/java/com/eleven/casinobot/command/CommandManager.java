@@ -3,6 +3,7 @@ package com.eleven.casinobot.command;
 import com.eleven.casinobot.command.commands.common.HelpCommand;
 import com.eleven.casinobot.command.commands.common.PingCommand;
 import com.eleven.casinobot.command.commands.common.SetPrefixCommand;
+import com.eleven.casinobot.command.commands.game.FlipCoinCommand;
 import com.eleven.casinobot.command.commands.music.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
@@ -20,6 +21,7 @@ public class CommandManager {
         addCommand(new HelpCommand(this));
         addCommand(new SetPrefixCommand());
         addCommand(new PingCommand());
+        addCommand(new FlipCoinCommand());
 
         /// music
         addCommand(new JoinCommand());
