@@ -6,6 +6,7 @@ import com.eleven.casinobot.config.BotConfig;
 import com.eleven.casinobot.config.PrefixConfig;
 import com.eleven.casinobot.database.BotDatabase;
 import me.duncte123.botcommons.BotCommons;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.ReadyEvent;
@@ -85,12 +86,13 @@ public class BotListener extends ListenerAdapter {
     public void onGuildMessageReactionAdd(@NotNull GuildMessageReactionAddEvent event) {
         User user = event.getUser();
         TextChannel channel = event.getChannel();
+        Guild guild = event.getGuild();
 
         if (user.isBot()) {
             return;
         }
 
-        if (FlipCoinCommand.FlipCoin.server.contains(channel.getGuild().getIdLong())) {
+        if (FlipCoinCommand.FlipCoin.server.contains(guild.getIdLong())) {
             if (FlipCoinCommand.FlipCoin.user.containsKey(user.getIdLong())) {
                 String bating = FlipCoinCommand.FlipCoin.user
                                 .get(user.getIdLong()) ? "앞면" : "뒷면";
